@@ -5,6 +5,11 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Products from './components/Products';
 import Signup from './components/Signup';
+import ProductByCategory from './components/ProductByCategory';
+import New from './components/New';
+import Payments from './components/Payments';
+import Cashback from './components/Cashback';
+import ProductDesc from './components/ProductDesc';
 
 function App() {
   return (
@@ -17,6 +22,9 @@ function App() {
               <Hero />
               <Categories />
               <Signup/>
+              <New/>
+              <Payments/>
+              <Cashback/>
             </>
           }></Route>
           <Route path='/shopme' element={
@@ -24,6 +32,9 @@ function App() {
               <Hero />
               <Categories />
               <Signup/>
+              <New/>
+              <Payments/>
+              <Cashback/>
             </>
           }></Route>
             <Route path='/product' element={
@@ -32,6 +43,17 @@ function App() {
               <Signup/>
             </>
           }></Route>
+          <Route exact path='/:id' element={
+            <>
+              <ProductDesc/>
+            </>
+          }></Route>
+          <Route path='/categories/:cat' element={
+            <>
+              <ProductByCategory/>
+            </>
+          }></Route>
+          
         </Routes>
 
       </div>
