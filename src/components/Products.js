@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading';
 import { Link } from 'react-router-dom';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Products() {
     const [prod, setProd] = useState({
@@ -9,6 +11,7 @@ export default function Products() {
     })
     const [cat, setCat] = useState('All')
     const [btnTxt, setBtnTxt] = useState('Add to cart')
+    const rowSkeletons = 20
 
     useEffect(() => {
 
@@ -57,7 +60,51 @@ export default function Products() {
 
     }
 
-    
+    if (prod.loading) {
+
+        let rows = []
+        for (let index = 0; index < rowSkeletons; index++) {
+            rows.push(
+                <div className="col text-decoration-none">
+                    <div className="card card-cover h-100 overflow-hidden rounded-4">
+                        <div className="d-flex flex-column h-100 text-shadow-1 py-4">
+                            <div className="">
+                                <div className="row d-flex align-items-center justify-content-center">
+                                    <Link className="col-auto px-2 px-md-0">
+                                        <Skeleton width={250} height={150} />
+                                    </Link>
+                                </div>
+                                <div className="row px-2 mt-3 text-center text-md-left">
+                                    <Skeleton width={250} height={20} />
+                                    <Skeleton className='mt-2' width={50} height={20} />
+                                    <Skeleton className='mt-2' width={80} height={20} />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
+        return (
+            <SkeletonTheme color='#F5F5F5' highlightColor='#ffffff'>
+                <div className="container px-4 px-md-0 mt-4">
+                    <div className="row">
+                        <div className="col-auto me-auto">
+                            <h2 className='fw-bold'>Loading Products...</h2>
+                        </div>
+                        <div className="row row-cols-2 row-cols-lg-3 align-items-stretch g-4">
+                            {rows}
+                        </div>
+                    </div>
+                </div>
+            </SkeletonTheme>
+        )
+
+    }
+
+
 
     return (
         <div>
@@ -77,7 +124,7 @@ export default function Products() {
                         </select>
                     </div>
                 </div>
-                {prod.loading && <Loading />}
+                {/* {prod.loading &&                } */}
                 <div className="row row-cols-2 row-cols-lg-3 align-items-stretch g-4 py-3">
                     {prod.result.map((prod) => {
                         return (
@@ -94,7 +141,7 @@ export default function Products() {
                                                         <iconify-icon icon="icon-park-outline:like" style={{ fontSize: '24px' }}></iconify-icon>
                                                     </div>
                                                 </div>
-                                                <Link className="col-auto" to={'/id='+prod.id}>
+                                                <Link className="col-auto" to={'/id=' + prod.id}>
                                                     <img className='img-fluid px-2 px-md-5' src={prod.image} alt="" style={{ height: '150px' }} />
                                                 </Link>
                                             </div>
@@ -102,14 +149,7 @@ export default function Products() {
                                                 <h6 className="fw-bold text-dark">{prod.title.slice(0, 24)}..</h6>
                                                 <p className="text-success lead fw-bold"><del className='mx-2 d-block text-secondary'>$ {(parseInt(prod.price) * 2).toString()}</del>$ {prod.price}</p>
                                             </div>
-                                            {/* <div className="row d-flex gap-2 gap-md-0">
-                                                <div className="col-md-6">
-                                                    <button className='btn btn-success col-12 d-flex align-items-center justify-content-center gap-2' onClick={()=>addtoCart(prod.id)}><iconify-icon icon="material-symbols:add-shopping-cart-sharp" style={{ fontSize: '20px' }}></iconify-icon>{btnTxt}</button>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <button className='btn btn-outline-success col-12 d-flex align-items-center justify-content-center gap-2'><iconify-icon icon="icon-park-outline:buy" style={{ fontSize: '20px' }}></iconify-icon>Buy now</button>
-                                                </div>
-                                            </div> */}
+
                                         </div>
                                     </div>
                                 </div>
