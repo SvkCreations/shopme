@@ -51,14 +51,6 @@ export default function New() {
                                                 <h6 className="fw-bold">{prod.title.slice(0, 24)}..</h6>
                                                 <p className="text-success lead fw-bold">$ {prod.price}</p>
                                             </div>
-                                            <div className="row d-flex gap-2 gap-md-0">
-                                                <div className="col-md-6">
-                                                    <button className='btn btn-success col-12 d-flex align-items-center justify-content-center gap-2'><iconify-icon icon="material-symbols:add-shopping-cart-sharp" style={{ fontSize: '20px' }}></iconify-icon>Add to cart</button>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <button className='btn btn-outline-success col-12 d-flex align-items-center justify-content-center gap-2'><iconify-icon icon="icon-park-outline:like" style={{ fontSize: '20px' }}></iconify-icon>Add to wishlist</button>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -19,11 +19,8 @@ export default function Navbar() {
       }
     }
     let showPosition = (position) => {
-      console.log(position.coords.latitude)
-      console.log(position.coords.longitude)
       const fetchData = () => {
         try {
-          console.log(position.coords.latitude)
           fetch(`https://geocode.xyz/${position.coords.latitude},${position.coords.longitude}?json=1`)
             .then(res => res.json())
             .then((json) => {
@@ -63,7 +60,7 @@ export default function Navbar() {
           {location.result.map((loc) => {
             return (
               <div className="col-auto col-md-4 d-flex px-md-5 align-items-center justify-content-center me-auto" key={loc.latt}>
-                <p className='px-2 pt-0 pb-0 m-0'>{loc.staddress} , {loc.city}</p>
+                <p className='px-2 pt-0 pb-0 m-0'>{loc.staddress?loc.staddress:'Location not found'} {loc.city?(','+loc.city):''}</p>
               </div>
             )
           })}

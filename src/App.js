@@ -10,6 +10,7 @@ import New from './components/New';
 import Payments from './components/Payments';
 import Cashback from './components/Cashback';
 import ProductDesc from './components/ProductDesc';
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -51,6 +52,11 @@ function App() {
           <Route path='/categories/:cat' element={
             <>
               <ProductByCategory/>
+            </>
+          }></Route>
+          <Route path='/cart' element={
+            <>
+              <Cart/>
             </>
           }></Route>
           

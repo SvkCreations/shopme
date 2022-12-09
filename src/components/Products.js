@@ -8,10 +8,11 @@ export default function Products() {
         loading: true
     })
     const [cat, setCat] = useState('All')
+    const [btnTxt, setBtnTxt] = useState('Add to cart')
 
     useEffect(() => {
 
-        const fetchData = async () => {
+        const fetchData = () => {
             try {
                 fetch('https://fakestoreapi.com/products')
                     .then(res => res.json())
@@ -56,6 +57,8 @@ export default function Products() {
 
     }
 
+    
+
     return (
         <div>
             <div className="container px-4 px-md-0 mt-4">
@@ -99,14 +102,14 @@ export default function Products() {
                                                 <h6 className="fw-bold text-dark">{prod.title.slice(0, 24)}..</h6>
                                                 <p className="text-success lead fw-bold"><del className='mx-2 d-block text-secondary'>$ {(parseInt(prod.price) * 2).toString()}</del>$ {prod.price}</p>
                                             </div>
-                                            <div className="row d-flex gap-2 gap-md-0">
+                                            {/* <div className="row d-flex gap-2 gap-md-0">
                                                 <div className="col-md-6">
-                                                    <button className='btn btn-success col-12 d-flex align-items-center justify-content-center gap-2'><iconify-icon icon="material-symbols:add-shopping-cart-sharp" style={{ fontSize: '20px' }}></iconify-icon>Add to cart</button>
+                                                    <button className='btn btn-success col-12 d-flex align-items-center justify-content-center gap-2' onClick={()=>addtoCart(prod.id)}><iconify-icon icon="material-symbols:add-shopping-cart-sharp" style={{ fontSize: '20px' }}></iconify-icon>{btnTxt}</button>
                                                 </div>
                                                 <div className="col-md-6">
                                                     <button className='btn btn-outline-success col-12 d-flex align-items-center justify-content-center gap-2'><iconify-icon icon="icon-park-outline:buy" style={{ fontSize: '20px' }}></iconify-icon>Buy now</button>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
