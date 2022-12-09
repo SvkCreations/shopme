@@ -1,22 +1,73 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
+  const [latlang, setLatlang] = useState({})
+  const [location, setLocation] = useState({
+    result: [],
+    loading: true
+  })
+  useEffect(() => {
+    let getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        setLatlang({
+          latitude: 'not found',
+          longitude: 'not found'
+        })
+      }
+    }
+    let showPosition = (position) => {
+      console.log(position.coords.latitude)
+      console.log(position.coords.longitude)
+      const fetchData = () => {
+        try {
+          console.log(position.coords.latitude)
+          fetch(`https://geocode.xyz/${position.coords.latitude},${position.coords.longitude}?json=1`)
+            .then(res => res.json())
+            .then((json) => {
+              console.log(json)
+              setLocation({
+                result: [json],
+                loading: false
+              })
+            })
+        } catch (error) {
+          console.log("error", error);
+        }
+        
+      };
+      fetchData()
+    }
+    getLocation()
+  }, [])
+
   return (
     <div>
       {/* Header */}
       <div className="container-fluid bg-success">
         <div className="row text-white p-2">
-          <div className="col-auto col-md-4 d-flex px-md-5 align-items-center">
+          <div className="col-auto col-md-4 d-flex px-md-5 align-items-center me-auto">
             <iconify-icon inline icon="ic:baseline-call" style={{ fontSize: "24px" }}></iconify-icon>
             <p className='px-2 pt-0 pb-0 m-0'>+91 8240703010</p>
           </div>
-          <div className="col-auto d-flex col-md-4 align-items-center justify-content-center">
+          <div className="col-auto d-flex col-md-4 align-items-center justify-content-center me-auto">
             <p className='px-2 pt-0 pb-0 m-0'>Get 50% off on Selected Items. <a className='text-white' href="/shop">Shop now</a> </p>
           </div>
-          <div className="col-auto col-md-4 d-flex px-md-5 align-items-center justify-content-center">
-            <p className='px-2 pt-0 pb-0 m-0'>Location:</p>
-          </div>
+          {location.loading &&
+            <div className="col-auto col-md-4 d-flex px-md-5 align-items-center justify-content-center">
+              <p className='px-2 pt-0 pb-0 m-0'>Getting Location...</p>
+            </div>
+          }
+          {location.result.map((loc) => {
+            return (
+              <div className="col-auto col-md-4 d-flex px-md-5 align-items-center justify-content-center me-auto" key={loc.latt}>
+                <p className='px-2 pt-0 pb-0 m-0'>{loc.staddress} , {loc.city}</p>
+              </div>
+            )
+          })}
+
         </div>
       </div>
 
@@ -50,7 +101,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      
+
     </div>
 
 

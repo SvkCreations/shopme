@@ -43,9 +43,9 @@ export default function New() {
                                     <div className="d-flex flex-column h-100 text-shadow-1 pt-5">
                                         <div className="">
                                             <div className="row d-flex align-items-center justify-content-center">
-                                                <div className="col-auto">
+                                                <Link className="col-auto" to={'/id='+prod.id}>
                                                     <img className='img-fluid px-2 px-md-5' src={prod.image} alt="" style={{ height: '150px' }} />
-                                                </div>
+                                                </Link>
                                             </div>
                                             <div className="row px-2 mt-3 text-center text-md-left">
                                                 <h6 className="fw-bold">{prod.title.slice(0, 24)}..</h6>

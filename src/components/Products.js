@@ -78,7 +78,7 @@ export default function Products() {
                 <div className="row row-cols-2 row-cols-lg-3 align-items-stretch g-4 py-3">
                     {prod.result.map((prod) => {
                         return (
-                            <Link className="col text-decoration-none" to={'/id='+prod.id} key={prod.id}>
+                            <div className="col text-decoration-none" key={prod.id}>
                                 <div className="card card-cover h-100 overflow-hidden rounded-4">
                                     <div className="d-flex flex-column h-100 text-shadow-1 pt-2">
                                         <div className="">
@@ -91,9 +91,9 @@ export default function Products() {
                                                         <iconify-icon icon="icon-park-outline:like" style={{ fontSize: '24px' }}></iconify-icon>
                                                     </div>
                                                 </div>
-                                                <div className="col-auto">
+                                                <Link className="col-auto" to={'/id='+prod.id}>
                                                     <img className='img-fluid px-2 px-md-5' src={prod.image} alt="" style={{ height: '150px' }} />
-                                                </div>
+                                                </Link>
                                             </div>
                                             <div className="row px-2 mt-3 text-center text-md-left">
                                                 <h6 className="fw-bold text-dark">{prod.title.slice(0, 24)}..</h6>
@@ -110,7 +110,7 @@ export default function Products() {
                                         </div>
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         )
                     })}
 
