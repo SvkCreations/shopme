@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img from '../hero-bg.png'
+import img from '../hero-bg.png';
+import { motion } from 'framer-motion';
 export default function Hero() {
     return (
-        <div className='container-fluid d-flex align-items-center justify-content-center' style={{ backgroundColor: "#bee0ec" }}>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className='container-fluid d-flex align-items-center justify-content-center' style={{ backgroundColor: "#bee0ec" }}>
             <div className="row container featurette px-md-0 py-5 py-md-4 d-flex align-items-center justify-content-center gap-5 gap-md-0">
                 <div className="col-md-7">
                     <h2 className="featurette-heading fw-bold display-6 text-success col-md-8">Clothing, Jewellery and Electronics</h2>
@@ -18,6 +19,6 @@ export default function Hero() {
 
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

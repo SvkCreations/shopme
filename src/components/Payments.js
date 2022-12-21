@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Payments() {
     return (
-        <div className='container px-4 py-3 py-md-5'>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className='container px-4 py-3 py-md-5'>
             <h2 className='fw-bold'>Accepted Payment Methods</h2>
             <div className="row row-cols-3 row-cols-lg-6 align-items-stretch g-4 py-3">
-                <div className="col">
+                <div>
                     <div className="card card-cover h-100 overflow-hidden rounded-4">
                         <div className="d-flex flex-column h-100 text-shadow-1">
                             <div className="row d-flex align-items-center justify-content-center px-3 py-2 py-md-0 h-100">
@@ -72,6 +73,6 @@ export default function Payments() {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

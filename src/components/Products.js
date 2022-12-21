@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Loading from './Loading';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-
 export default function Products() {
     const [prod, setProd] = useState({
         result: [],
@@ -115,20 +114,26 @@ export default function Products() {
                     </div>
 
                     <div className="col-auto">
-                        <select className="form-select" value={cat} aria-label="Default select example" onChange={handleCatChange}>
-                            <option value="All">All</option>
-                            <option value="Men's Clothing">Men's Clothing</option>
-                            <option value="Women's Clothing">Women's Clothing</option>
-                            <option value="Jewelery">Jewelery</option>
-                            <option value="Electronics">Electronics</option>
-                        </select>
+                        <div className="row d-flex align-items-center justify-content-center">
+                            <div className="col-auto">
+                            <select className="form-select" value={cat} aria-label="Default select example" onChange={handleCatChange}>
+                                <option value="All">All</option>
+                                <option value="Men's Clothing">Men's Clothing</option>
+                                <option value="Women's Clothing">Women's Clothing</option>
+                                <option value="Jewelery">Jewelery</option>
+                                <option value="Electronics">Electronics</option>
+                            </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {/* {prod.loading &&                } */}
                 <div className="row row-cols-2 row-cols-lg-3 align-items-stretch g-4 py-3">
                     {prod.result.map((prod) => {
                         return (
-                            <div className="col text-decoration-none" key={prod.id}>
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.8 }} className="col text-decoration-none" key={prod.id}>
                                 <div className="card card-cover h-100 overflow-hidden rounded-4">
                                     <div className="d-flex flex-column h-100 text-shadow-1 pt-2">
                                         <div className="">
@@ -153,7 +158,7 @@ export default function Products() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         )
                     })}
 

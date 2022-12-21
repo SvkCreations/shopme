@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export default function New() {
     const [prod, setProd] = useState({
@@ -35,10 +36,12 @@ export default function New() {
         </div>
       
 
-      <div className="row row-cols-2 row-cols-lg-4 align-items-stretch g-4 pt-3 pb-5 border-bottom">
+      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}viewport={{ once: true }} className="row row-cols-2 row-cols-lg-4 align-items-stretch g-4 pt-3 pb-5 border-bottom">
                     {prod.result.map((prod) => {
                         return (
-                            <div className="col" key={prod.id}>
+                            <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.8 }} className="col" key={prod.id}>
                                 <div className="card card-cover h-100 overflow-hidden rounded-4">
                                     <div className="d-flex flex-column h-100 text-shadow-1 pt-5">
                                         <div className="">
@@ -54,11 +57,11 @@ export default function New() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         )
                     })}
 
-                </div>
+                </motion.div>
     </div>
   )
 }

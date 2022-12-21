@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import card from '../card.png';
+import { motion } from 'framer-motion';
 
 export default function Cashback() {
     return (
-        <div className="container-fluid mt-5" style={{ backgroundColor: '#ffe7cd' }}>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="container-fluid mt-5" style={{ backgroundColor: '#ffe7cd' }}>
             <div className='container px-4 pt-5 pb-3'>
                 <div className="row featurette d-flex gap-4 gap-md-0 align-items-center justify-content-center">
                     <div className="col-md-7">
@@ -20,6 +21,6 @@ export default function Cashback() {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

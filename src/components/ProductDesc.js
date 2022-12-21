@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom';
 import Loading from './Loading';
-
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 export default function ProductDesc() {
     const { id } = useParams()
+
     const [prod, setProd] = useState({
         result: [],
         loading: true
@@ -12,7 +14,11 @@ export default function ProductDesc() {
         result: [],
         loading: true
     })
-    const [btnTxt, setBtnTxt] = useState('Add to cart')
+    const [btn, setBtn] = useState({
+        text: 'Add to cart',
+        disabled: false
+    })
+    const rowSkeletons = 1
 
     useEffect(() => {
 
@@ -47,26 +53,64 @@ export default function ProductDesc() {
     }, []);
     const size = Array.from(document.querySelectorAll('.size'));
     size.forEach((element, index) => {
-        element.addEventListener('click', ()=>{
+        element.addEventListener('click', () => {
             element.classList.remove('btn-outline-success')
             element.classList.add('btn-success')
-            size.splice(index,1)
+            size.splice(index, 1)
             size.forEach(element => {
                 element.classList.remove('btn-success')
                 element.classList.add('btn-outline-success')
             });
         })
     });
-    let addtoCart=(id)=>{
+    let addtoCart = (id) => {
         console.log(id)
-        try{
+        try {
             localStorage.setItem('id', id)
-            setBtnTxt('Go to Cart')
+            setBtn({
+                text: 'Added to Cart',
+                disabled: true
+            })
         }
-        catch(error){
-            console.log('error',error)
+        catch (error) {
+            console.log('error', error)
         }
-        
+
+    }
+    if (prod.loading) {
+
+        let rows = []
+        for (let index = 0; index < rowSkeletons; index++) {
+            rows.push(
+                <div className="row featurette d-flex align-items-center gap-5 gap-md-0" key={prod.id}>
+                    <div className="col-md-7 order-2 me-auto">
+                        <Skeleton width={80} height={20} />
+                        <Skeleton width={500} height={40} />
+                        <Skeleton width={100} height={20} />
+                        <Skeleton width={500} height={200} />
+                        <Skeleton width={150} height={50} />
+
+                        <div className="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                            <Skeleton width={200} height={50} />
+                            <Skeleton width={200} height={50} />
+                        </div>
+
+                    </div>
+                    <div className="col-md-5 me-auto px-5 px-md-0">
+                        <Skeleton width={500} height={500} />
+                    </div>
+                </div>
+            )
+        }
+
+        return (
+            <SkeletonTheme color='#F5F5F5' highlightColor='#ffffff'>
+                <div className='container py-4 py-md-5 px-md-4'>
+                    {rows}
+                </div>
+            </SkeletonTheme>
+        )
+
     }
     return (
 
@@ -91,7 +135,10 @@ export default function ProductDesc() {
 
 
                             <div className="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-                                <Link type="button" className="btn btn-success btn-lg px-4 me-md-2" onClick={()=>{addtoCart(prod.id)}} to='/cart'>{btnTxt}</Link>
+                                <button type="button" className={`btn btn-success ${btn.disabled ? 'disabled' : ''} btn-lg px-4 me-md-2`} onClick={() => { addtoCart(prod.id) }} >{btn.text}</button>
+                                {btn.disabled &&
+                                    <Link to='/cart' className="btn btn-success btn-lg px-4">Go to my Cart</Link>
+                                }
                                 <button type="button" className="btn btn-outline-success btn-lg px-4">Buy now</button>
                             </div>
 
@@ -122,7 +169,7 @@ export default function ProductDesc() {
                                                         <iconify-icon icon="icon-park-outline:like" style={{ fontSize: '24px' }}></iconify-icon>
                                                     </div>
                                                 </div>
-                                                <a className="col-auto" href={'/id='+prod.id}>
+                                                <a className="col-auto" href={'/id=' + prod.id}>
                                                     <img className='img-fluid px-2 px-md-5' src={prod.image} alt="" style={{ height: '150px' }} />
                                                 </a>
                                             </div>
@@ -130,7 +177,7 @@ export default function ProductDesc() {
                                                 <h6 className="fw-bold text-dark">{prod.title.slice(0, 24)}..</h6>
                                                 <p className="text-success lead fw-bold"><del className='mx-2 d-block text-secondary'>$ {(parseInt(prod.price) * 2).toString()}</del>$ {prod.price}</p>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>

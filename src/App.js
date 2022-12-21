@@ -11,12 +11,35 @@ import Payments from './components/Payments';
 import Cashback from './components/Cashback';
 import ProductDesc from './components/ProductDesc';
 import Cart from './components/Cart';
+import Address from './components/Address';
+import { useEffect, useState } from 'react';
 
 function App() {
+  // const [location, setLocation] = useState({
+  //   lat:'',
+  //   long:''
+  // })
+  // useEffect(async()=>{
+  //   const getCoords = async () => {
+  //     const pos = await new Promise((resolve, reject) => {
+  //       navigator.geolocation.getCurrentPosition(resolve, reject);
+  //     });
+  
+  //     return {
+  //       long: pos.coords.longitude,
+  //       lat: pos.coords.latitude,
+  //     };
+  // };
+
+  // const coords = await getCoords();
+  // setLocation(coords)
+  // console.log(coords)
+
+  // },[])
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar  />
         <Routes>
           <Route path='/' element={
             <>
@@ -57,6 +80,11 @@ function App() {
           <Route path='/cart' element={
             <>
               <Cart/>
+            </>
+          }></Route>
+          <Route path='/address' element={
+            <>
+              <Address/>
             </>
           }></Route>
           
