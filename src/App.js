@@ -82,11 +82,7 @@ function App() {
               <Cart/>
             </>
           }></Route>
-          <Route path='/address' element={
-            <>
-              <Address/>
-            </>
-          }></Route>
+          
           
         </Routes>
 
