@@ -7,7 +7,7 @@ export default function Password() {
     }
     let handleSubmit = ()=>{
         if(pwd==="this"){
-            document.location='shopme/welcome'
+            document.location='/welcome'
         }
         else{
             setError("Incorrect Password")
