@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.css": "/shopme/static/css/main.c497cf25.css",
-    "main.js": "/shopme/static/js/main.c2fb5f4b.js",
+    "main.css": "/shopme/static/css/main.1e5bc57b.css",
+    "main.js": "/shopme/static/js/main.e0a4a51a.js",
     "static/js/787.fc44fc8b.chunk.js": "/shopme/static/js/787.fc44fc8b.chunk.js",
-    "static/media/mens.jpg": "/shopme/static/media/mens.2ce9a81f2b554f404748.jpg",
-    "static/media/womens.jpg": "/shopme/static/media/womens.8adc6719c21e580e27dd.jpg",
-    "static/media/electronics.jpg": "/shopme/static/media/electronics.dd0b42f8d1deca69bdc1.jpg",
-    "static/media/card.png": "/shopme/static/media/card.4f1bbbea70c9152130aa.png",
-    "static/media/hero-bg.png": "/shopme/static/media/hero-bg.5d15afc78f40389bb878.png",
-    "static/media/Loading.gif": "/shopme/static/media/Loading.e50dc9f77633e6991346.gif",
+    "static/media/auth-bg-01.jpg": "/shopme/static/media/auth-bg-01.cf9303a2ed8c1ef43d16.jpg",
+    "static/media/home-bg-01.jpg": "/shopme/static/media/home-bg-01.813a26909143fefe1192.jpg",
+    "static/media/onze.jpeg": "/shopme/static/media/onze.4f63b2ba3b81e50bdafa.jpeg",
+    "static/media/story-bg.jpg": "/shopme/static/media/story-bg.c550ab0bca8789bdc881.jpg",
+    "static/media/louvre.webp": "/shopme/static/media/louvre.ff28415385ae4a1fad20.webp",
+    "static/media/hyatt.jpg": "/shopme/static/media/hyatt.c11812f14a88243f02fe.jpg",
+    "static/media/miracle-garden.jpg": "/shopme/static/media/miracle-garden.cb565fcb09446d560e03.jpg",
+    "static/media/burj-khalifa.jpg": "/shopme/static/media/burj-khalifa.c8d26d4af68f25284c08.jpg",
     "index.html": "/shopme/index.html",
-    "main.c497cf25.css.map": "/shopme/static/css/main.c497cf25.css.map",
-    "main.c2fb5f4b.js.map": "/shopme/static/js/main.c2fb5f4b.js.map",
+    "main.1e5bc57b.css.map": "/shopme/static/css/main.1e5bc57b.css.map",
+    "main.e0a4a51a.js.map": "/shopme/static/js/main.e0a4a51a.js.map",
     "787.fc44fc8b.chunk.js.map": "/shopme/static/js/787.fc44fc8b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c497cf25.css",
-    "static/js/main.c2fb5f4b.js"
+    "static/css/main.1e5bc57b.css",
+    "static/js/main.e0a4a51a.js"
   ]
 }
