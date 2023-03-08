@@ -14,6 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Password />}></Route>
+          <Route path='/shopme' element={<Password />}></Route>
           <Route path='/welcome' element={
             <>
               <Navbar />
