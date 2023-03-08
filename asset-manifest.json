@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shopme/static/css/main.1e5bc57b.css",
-    "main.js": "/shopme/static/js/main.8d34a63d.js",
+    "main.js": "/shopme/static/js/main.bde38d69.js",
     "static/js/787.fc44fc8b.chunk.js": "/shopme/static/js/787.fc44fc8b.chunk.js",
     "static/media/auth-bg-01.jpg": "/shopme/static/media/auth-bg-01.cf9303a2ed8c1ef43d16.jpg",
     "static/media/home-bg-01.jpg": "/shopme/static/media/home-bg-01.813a26909143fefe1192.jpg",
@@ -13,11 +13,11 @@
     "static/media/burj-khalifa.jpg": "/shopme/static/media/burj-khalifa.c8d26d4af68f25284c08.jpg",
     "index.html": "/shopme/index.html",
     "main.1e5bc57b.css.map": "/shopme/static/css/main.1e5bc57b.css.map",
-    "main.8d34a63d.js.map": "/shopme/static/js/main.8d34a63d.js.map",
+    "main.bde38d69.js.map": "/shopme/static/js/main.bde38d69.js.map",
     "787.fc44fc8b.chunk.js.map": "/shopme/static/js/787.fc44fc8b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1e5bc57b.css",
-    "static/js/main.8d34a63d.js"
+    "static/js/main.bde38d69.js"
   ]
 }
