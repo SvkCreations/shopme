@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 export default function Password() {
     const [pwd,setPwd] = useState("")
     const [err, setError] = useState("")
@@ -24,7 +25,7 @@ export default function Password() {
                             <input type="password" className='p-3' style={{height:"100%", width:"100%", border:"none", outline:"none", fontSize:'36px'}} onChange={handlePwdChange} value={pwd} />
                         </div>
                     </div>
-                    <button className='btn col-2 text-white d-flex align-items-center justify-content-center' onClick={handleSubmit} style={{backgroundColor:"#909C76", borderRadius:'0', fontSize:'30px'}}> <iconify-icon icon="material-symbols:arrow-right-alt"></iconify-icon></button>
+                    <Link className='btn col-2 text-white d-flex align-items-center justify-content-center' onClick={handleSubmit} style={{backgroundColor:"#909C76", borderRadius:'0', fontSize:'30px'}} to='/welcome'> <iconify-icon icon="material-symbols:arrow-right-alt"></iconify-icon></Link>
 
                 </div>
             </div>
