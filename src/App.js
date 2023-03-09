@@ -13,18 +13,18 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<Navbar />}>
-            <Route index element={<Password />}></Route>
-            <Route path='welcome' element={
-              <>
-                <Main />
-                <Story />
-                <Timeline />
-                <ExploreBrief />
-                <ScrollTop />
-              </>
-            }></Route>
-          </Route>
+          <Route exact path='/' element={<Password/>}></Route>
+          <Route exact path='/shopme' element={<Password/>}></Route>
+          <Route exact path='/welcome' element={
+            <>
+            <Navbar/>
+            <Main/>
+            <Story/>
+            <Timeline/>
+            <ExploreBrief/>
+            <ScrollTop/>
+            </>
+          }></Route>
         </Routes>
       </Router>
     </div>
