@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.99d866de.css",
-    "main.js": "/static/js/main.ae509ced.js",
+    "main.js": "/static/js/main.868c5e12.js",
     "static/js/787.fc44fc8b.chunk.js": "/static/js/787.fc44fc8b.chunk.js",
     "static/media/auth-bg-01.jpg": "/static/media/auth-bg-01.cf9303a2ed8c1ef43d16.jpg",
     "static/media/home-bg-01.jpg": "/static/media/home-bg-01.813a26909143fefe1192.jpg",
@@ -13,11 +13,11 @@
     "static/media/burj-khalifa.jpg": "/static/media/burj-khalifa.c8d26d4af68f25284c08.jpg",
     "index.html": "/index.html",
     "main.99d866de.css.map": "/static/css/main.99d866de.css.map",
-    "main.ae509ced.js.map": "/static/js/main.ae509ced.js.map",
+    "main.868c5e12.js.map": "/static/js/main.868c5e12.js.map",
     "787.fc44fc8b.chunk.js.map": "/static/js/787.fc44fc8b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.99d866de.css",
-    "static/js/main.ae509ced.js"
+    "static/js/main.868c5e12.js"
   ]
 }
