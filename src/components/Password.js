@@ -6,14 +6,14 @@ export default function Password() {
     let handlePwdChange=(e)=>{
         setPwd(e.target.value)
     }
-    let handleSubmit = ()=>{
-        if(pwd==="this"){
-            document.location='/welcome'
-        }
-        else{
-            setError("Incorrect Password")
-        }
-    }
+    // let handleSubmit = ()=>{
+    //     if(pwd==="this"){
+    //         document.location='/welcome'
+    //     }
+    //     else{
+    //         setError("Incorrect Password")
+    //     }
+    // }
     return (
         <div className='container-fluid password d-flex align-items-center justify-content-center'>
             <div className='col-11 col-md-5'>
@@ -25,7 +25,7 @@ export default function Password() {
                             <input type="password" className='p-3' style={{height:"100%", width:"100%", border:"none", outline:"none", fontSize:'36px'}} onChange={handlePwdChange} value={pwd} />
                         </div>
                     </div>
-                    <Link className='btn col-2 text-white d-flex align-items-center justify-content-center' onClick={handleSubmit} style={{backgroundColor:"#909C76", borderRadius:'0', fontSize:'30px'}} to='/welcome'> <iconify-icon icon="material-symbols:arrow-right-alt"></iconify-icon></Link>
+                    <Link className='btn col-2 text-white d-flex align-items-center justify-content-center' style={{backgroundColor:"#909C76", borderRadius:'0', fontSize:'30px'}} to='/welcome'> <iconify-icon icon="material-symbols:arrow-right-alt"></iconify-icon></Link>
 
                 </div>
             </div>
